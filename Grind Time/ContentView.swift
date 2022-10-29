@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewRouter = ViewRouter()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, Max!")
+            switch viewRouter.currentPage {
+                case "mapView":
+                    //MapView(viewRouter: viewRouter)
+                    MapView()
+                default:
+                    HomeView(viewRouter: viewRouter)
+            }
+            NavMenuView(viewRouter: viewRouter)
         }
-        .padding()
     }
 }
 
