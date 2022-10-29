@@ -17,7 +17,7 @@ struct LeaderboardView: View {
         VStack {
             Text("Leaderboard").font(.title)
             List {
-                ForEach(store.timeAtBuildings) {tb in
+                ForEach(DataStore.sampleData.timeAtBuildings) {tb in
                     VStack(alignment: .leading) {
                         Text(locationToString(loc:tb.building))
                         Text("   Spent \(formatter.string(from: tb.lastSessionDuration)!) on \(tb.lastSessionDate.formatted())")

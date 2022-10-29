@@ -19,6 +19,8 @@ struct ContentView: View {
                 MapView(store: store)
             case "userView":
                 UserView(store: $store.store)
+            case "leaderboardView":
+                LeaderboardView(store: $store.store)
             default:
                 HomeView(store: store)
             }
