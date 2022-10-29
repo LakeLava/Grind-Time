@@ -10,15 +10,13 @@ import CoreLocation
 
 struct DataScrum: Identifiable, Codable {
     let id: UUID
-    var title: String
     var locationHistories: [LocationHistory]
     var timeAtBuildings: [TimeAtBuilding]
     
-    init(id: UUID = UUID(), title: String) {
+    init(id: UUID = UUID(), locationHistories: [LocationHistory], timeAtBuildings: [TimeAtBuilding]) {
         self.id = id
-        self.title = title
-        self.locationHistories = []
-        self.timeAtBuildings = []
+        self.locationHistories = locationHistories
+        self.timeAtBuildings = timeAtBuildings
     }
 }
 
@@ -129,14 +127,21 @@ extension DataScrum {
     }
      */
 }
-/*
+
 extension DataScrum {
-    static let sampleData: [DataScrum] =
-    [
-        DataScrum(title: "Design", attendees: ["Cathy", "Daisy", "Simon", "Jonathan"], lengthInMinutes: 10, theme: .yellow),
-        DataScrum(title: "App Dev", attendees: ["Katie", "Gray", "Euna", "Luis", "Darla"], lengthInMinutes: 5, theme: .orange),
-        DataScrum(title: "Web Dev", attendees: ["Chella", "Chris", "Christina", "Eden", "Karla", "Lindsey", "Aga", "Chad", "Jenn", "Sarah"], lengthInMinutes: 5, theme: .poppy)
+    static let sampleData: [DataScrum] = [
+        DataScrum(
+            locationHistories: [
+                LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676975, longitude: -82.836354), date: Date.now),
+                LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676965, longitude: -82.836364), date: Date.now)
+            ],
+            timeAtBuildings: [
+                TimeAtBuilding(building: Location.cooperLibrary, totalTime: TimeInterval(49231),
+                               lastSessionDuration: TimeInterval(12301), lastSessionDate: Date.now),
+                TimeAtBuilding(building: Location.hendrixStudentCenter, totalTime: TimeInterval(29231),
+                               lastSessionDuration: TimeInterval(11301), lastSessionDate: Date.now)
+
+            ]
+        )
     ]
 }
-
-*/
