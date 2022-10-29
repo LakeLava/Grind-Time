@@ -6,14 +6,31 @@
 //
 import MapKit
 import SwiftUI
+import CoreLocation
+import Foundation
 
 struct MapView: View {
-    @StateObject private var viewModel = MapViewModel()
-    
+    @StateObject var locationDataManager = LocationDataManager()
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation:  true).ignoresSafeArea().accentColor(Color(.systemPink)).onAppear{
-            viewModel.checkIfLocationServicesIsEnabled()
+        VStack {
+            switch locationDataManager.locationManager.authorizationStatus {
+            case .authorizedWhenInUse:  // Location services are available.
+                // Insert code here of what should happen when Location services are authorized
+                Text("Your current location is:")
+                Text("Latitude: \(locationDataManager.locationManager.location?.coordinate.latitude.description ?? "Error loading")")
+                Text("Longitude: \(locationDataManager.locationManager.location?.coordinate.longitude.description ?? "Error loading")")
+                
+            case .restricted, .denied:  // Location services currently unavailable.
+                // Insert code here of what should happen when Location services are NOT authorized
+                Text("Current location data was restricted or denied.")
+            case .notDetermined:        // Authorization not determined yet.
+                Text("Finding your location...")
+                ProgressView()
+            default:
+                ProgressView()
+            }
+            Map(coordinateRegion: $locationDataManager.region, showsUserLocation:  true).ignoresSafeArea().accentColor(Color(.systemPink))
         }
     }
 }
@@ -24,44 +41,51 @@ struct MapView_Previews: PreviewProvider {
     }
 }
 
-
-final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+//malias work
+class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegate {
+    var locationManager = CLLocationManager()
+    @Published var authorizationStatus: CLAuthorizationStatus?
     
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 34.676975, longitude: -82.836354), span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
     
-    var locationManager: CLLocationManager?
-    
-    func checkIfLocationServicesIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager!.delegate = self
-            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-            
-        } else {
-            print("Show an alert letting them know this is off and to go turn it on.")
-        }
+    override init() {
+        super.init()
+        locationManager.delegate = self
     }
     
-    private func checkLocationAuthorication(){
-        guard let locationManager = locationManager else {return}
-        
-        switch locationManager.authorizationStatus {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse:  // Location services are available.
+            // Insert code here of what should happen when Location services are authorized
+            authorizationStatus = .authorizedWhenInUse
+            locationManager.requestLocation()
+            break
             
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            print("Your location is restricted likely due to parental controls.")
-        case .denied:
-            print("You have denied this app location permission, go into settings to change it.")
-        case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001) )
-        @unknown default:
+        case .restricted:  // Location services currently unavailable.
+            // Insert code here of what should happen when Location services are NOT authorized
+            authorizationStatus = .restricted
+            break
+            
+        case .denied:  // Location services currently unavailable.
+            // Insert code here of what should happen when Location services are NOT authorized
+            authorizationStatus = .denied
+            break
+            
+        case .notDetermined:        // Authorization not determined yet.
+            authorizationStatus = .notDetermined
+            manager.requestWhenInUseAuthorization()
+            break
+            
+        default:
             break
         }
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorication()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Insert code to handle location updates
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error: \(error.localizedDescription)")
+    }
 }
