@@ -18,6 +18,7 @@
 		44EEF95F290D707900CD06A8 /* DataStoreClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF95E290D707900CD06A8 /* DataStoreClass.swift */; };
 		44EEF961290D72B900CD06A8 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF960290D72B900CD06A8 /* DataStore.swift */; };
 		44EEF963290D97AD00CD06A8 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF962290D97AD00CD06A8 /* UserView.swift */; };
+		44EEF965290DBC5100CD06A8 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF964290DBC5100CD06A8 /* LeaderboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		44EEF95E290D707900CD06A8 /* DataStoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreClass.swift; sourceTree = "<group>"; };
 		44EEF960290D72B900CD06A8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		44EEF962290D97AD00CD06A8 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		44EEF964290DBC5100CD06A8 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				43A77897290D597300C2A04B /* ContentView.swift */,
 				43A778A7290D63B800C2A04B /* HomeView.swift */,
 				43A778A5290D633E00C2A04B /* ViewRouter.swift */,
+				44EEF964290DBC5100CD06A8 /* LeaderboardView.swift */,
 				44EEF962290D97AD00CD06A8 /* UserView.swift */,
 				43A778A3290D5EB400C2A04B /* MapView.swift */,
 				43A778A9290D652F00C2A04B /* NavMenuView.swift */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44EEF965290DBC5100CD06A8 /* LeaderboardView.swift in Sources */,
 				43A77898290D597300C2A04B /* ContentView.swift in Sources */,
 				44EEF961290D72B900CD06A8 /* DataStore.swift in Sources */,
 				43A778A4290D5EB400C2A04B /* MapView.swift in Sources */,

@@ -16,21 +16,21 @@ struct NavMenuView: View {
     var body: some View {
         HStack() {
             // Homepage
-            Button(action: {viewRouter.currentPage = "assignments"}) {
+            Button(action: {viewRouter.currentPage = "homeView"}) {
                 Image(systemName: "house")
                     .resizable()
                     .frame(width: width, height: height)
             }.frame(maxWidth: .infinity)
             
             // Leaderboard
-            Button(action: {viewRouter.currentPage = "announcements"}) {
+            Button(action: {viewRouter.currentPage = "leaderboardView"}) {
                 Image(systemName: "list.star")
                     .resizable()
                     .frame(width: width, height: height)
             }.frame(maxWidth: .infinity)
             
             // Map
-            Button(action: {viewRouter.currentPage = "menu"}) {
+            Button(action: {viewRouter.currentPage = "mapView"}) {
                 Image(systemName: "map")
                     .resizable()
                     .frame(width: width, height: height)
