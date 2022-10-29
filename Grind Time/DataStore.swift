@@ -155,7 +155,7 @@ extension DataStore {
             TimeAtBuilding(building: Location.alumniCenter, totalTime: TimeInterval(67890),
                            lastSessionDuration: TimeInterval(12314), lastSessionDate: date1+900000),
             TimeAtBuilding(building: Location.Classof1944, totalTime: TimeInterval(13579),
-                           lastSessionDuration: TimeInterval(54657), lastSessionDate: date1+1000000),
+                           lastSessionDuration: TimeInterval(4657), lastSessionDate: date1+1000000),
             TimeAtBuilding(building: Location.administrativeServicesBuilding, totalTime: TimeInterval(24680),
                            lastSessionDuration: TimeInterval(23455), lastSessionDate: date1+1100000),
             TimeAtBuilding(building: Location.barnettHall, totalTime: TimeInterval(63740),

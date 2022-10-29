@@ -6,16 +6,23 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct LeaderboardView: View {
     @Binding var store: DataStore
+    
+    let formatter = DateComponentsFormatter()
 
     var body: some View {
         VStack {
-            
-            ForEach(store.timeAtBuildings) {tb in
-                Text(locationToString(loc:tb.building))
-                
+            Text("Leaderboard").font(.title)
+            List {
+                ForEach(store.timeAtBuildings) {tb in
+                    VStack(alignment: .leading) {
+                        Text(locationToString(loc:tb.building))
+                        Text("   Spent \(formatter.string(from: tb.lastSessionDuration)!) on \(tb.lastSessionDate.formatted())")
+                    }
+                }
             }
         }
     }
@@ -30,11 +37,11 @@ struct LeaderboardView_Previews: PreviewProvider {
 func locationToString(loc: DataStore.Location) -> String {
     switch loc {
     case DataStore.Location.administrativeServicesBuilding:
-        return "administrativeServicesBuilding"
+        return "Administrative Services Building"
     case DataStore.Location.agriculturalServiceCenter:
         return "agriculturalServiceCenter"
     case DataStore.Location.alumniCenter:
-        return "alumniCenter"
+        return "Alumni Center"
     case DataStore.Location.barnettHall:
         return "barnettHall"
     case DataStore.Location.barreHall:
@@ -54,7 +61,7 @@ func locationToString(loc: DataStore.Location) -> String {
     case DataStore.Location.bradleyHall:
         return "bradleyHall"
     case DataStore.Location.brooksCenterforthePerformingArts:
-        return "brooksCenterforthePerformingArts"
+        return "Brooks Center for the Performing Arts"
     case DataStore.Location.byrnesHall:
         return "byrnesHall"
     case DataStore.Location.calhounCourtsApartments:
@@ -88,7 +95,7 @@ func locationToString(loc: DataStore.Location) -> String {
     case DataStore.Location.cookEngineeringLaboratory:
         return "cookEngineeringLaboratory"
     case DataStore.Location.cooperLibrary:
-        return "cooperLibrary"
+        return "Cooper Library"
     case DataStore.Location.copeHall:
         return "copeHall"
     case DataStore.Location.coxPlaza:
@@ -140,7 +147,7 @@ func locationToString(loc: DataStore.Location) -> String {
     case DataStore.Location.haydenConferenceCenter:
         return "haydenConferenceCenter"
     case DataStore.Location.hendrixStudentCenter:
-        return "hendrixStudentCenter"
+        return "Hendrix Student Center"
     case DataStore.Location.holmesHall:
         return "holmesHall"
     case DataStore.Location.holtzendorffHall:
@@ -302,7 +309,7 @@ func locationToString(loc: DataStore.Location) -> String {
     case DataStore.Location.visitorsCenter:
         return "visitorsCenter"
     case DataStore.Location.Classof1944:
-        return "classof1944"
+        return "Class of 1944 Visitors Center"
     case DataStore.Location.walkerGolfCourseClubhouse:
         return "walkerGolfCourseClubhouse"
     case DataStore.Location.wannamakerHall:
