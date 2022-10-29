@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 struct DataStore: Identifiable, Codable {
-    let id: UUID
+    let id: UUID?
     var locationHistories: [LocationHistory]
     var timeAtBuildings: [TimeAtBuilding]
     
@@ -17,6 +17,11 @@ struct DataStore: Identifiable, Codable {
         self.id = id
         self.locationHistories = locationHistories
         self.timeAtBuildings = timeAtBuildings
+    }
+    init(id: UUID = UUID()) {
+        self.id = id
+        self.locationHistories = []
+        self.timeAtBuildings = []
     }
 }
 
@@ -129,19 +134,17 @@ extension DataStore {
 }
 
 extension DataStore {
-    static let sampleData: [DataStore] = [
-        DataStore(
-            locationHistories: [
-                LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676975, longitude: -82.836354), date: Date.now),
-                LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676965, longitude: -82.836364), date: Date.now)
-            ],
-            timeAtBuildings: [
-                TimeAtBuilding(building: Location.cooperLibrary, totalTime: TimeInterval(49231),
-                               lastSessionDuration: TimeInterval(12301), lastSessionDate: Date.now),
-                TimeAtBuilding(building: Location.hendrixStudentCenter, totalTime: TimeInterval(29231),
-                               lastSessionDuration: TimeInterval(11301), lastSessionDate: Date.now)
+    static let sampleData: DataStore = DataStore(
+        locationHistories: [
+            LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676975, longitude: -82.836354), date: Date.now),
+            LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676965, longitude: -82.836364), date: Date.now)
+        ],
+        timeAtBuildings: [
+            TimeAtBuilding(building: Location.cooperLibrary, totalTime: TimeInterval(49231),
+                           lastSessionDuration: TimeInterval(12301), lastSessionDate: Date.now),
+            TimeAtBuilding(building: Location.hendrixStudentCenter, totalTime: TimeInterval(29231),
+                           lastSessionDuration: TimeInterval(11301), lastSessionDate: Date.now)
 
-            ]
-        )
-    ]
+        ]
+    )
 }

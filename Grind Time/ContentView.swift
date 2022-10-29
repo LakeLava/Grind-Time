@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Binding var scrums: [DataStore]
+    @Binding var store: DataStore
     @ObservedObject var viewRouter = ViewRouter()
 
     var body: some View {
@@ -18,9 +18,9 @@ struct ContentView: View {
                 //MapView(viewRouter: viewRouter)
                 MapView()
             case "userView":
-                UserView(scrums: $scrums)
+                UserView(store: $store)
             default:
-                HomeView(scrums: $scrums)
+                HomeView(store: $store)
             }
             NavMenuView(viewRouter: viewRouter)
         }
@@ -29,6 +29,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(scrums: .constant(DataStore.sampleData), viewRouter: ViewRouter())
+        ContentView(store: .constant(DataStore.sampleData), viewRouter: ViewRouter())
     }
 }

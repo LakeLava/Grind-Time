@@ -9,19 +9,19 @@ import SwiftUI
 
 @main
 struct Grind_TimeApp: App {
-    @StateObject var store = DataStoreClass()
+    @StateObject var dataStore = DataStoreClass()
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(scrums: $store.scrums)
+                ContentView(store: $dataStore.store)
             } .onAppear {
                 DataStoreClass.load { result in
                     switch result {
                     case .failure(let error):
                         fatalError(error.localizedDescription)
-                    case .success(let scrums):
-                        store.scrums = scrums
+                    case .success(let store):
+                        dataStore.store = store
                     }
                 }
             }

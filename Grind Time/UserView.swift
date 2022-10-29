@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct UserView: View {
-    @Binding var scrums: [DataStore]
+    @Binding var store: DataStore
 
     var body: some View {
         VStack {
-            ForEach(scrums) { scrum in
-                ForEach(scrum.locationHistories) {lh in
-                    Text("\(lh.date)")
-                }
+            // Print all location histories to screen, ensuring they exist
+            ForEach(store.locationHistories) {lh in
+                Text("\(lh.date)")
             }
         }
     }
@@ -23,6 +22,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(scrums: .constant(DataStore.sampleData))
+        UserView(store: .constant(DataStore.sampleData))
     }
 }
