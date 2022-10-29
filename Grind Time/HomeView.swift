@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var store: DataStore
+    @StateObject var store: DataStoreClass
 
     var body: some View {
         VStack {
@@ -16,13 +16,13 @@ struct HomeView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, Max!")
-            MapView()
+            MapView(store: store)
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(store: .constant(DataStore.sampleData))
+        HomeView(store: DataStoreClass())
     }
 }
