@@ -15,22 +15,29 @@ struct NavMenuView: View {
     
     var body: some View {
         HStack() {
+            // Homepage
             Button(action: {viewRouter.currentPage = "assignments"}) {
                 Image(systemName: "house")
                     .resizable()
                     .frame(width: width, height: height)
             }.frame(maxWidth: .infinity)
+            
+            // Leaderboard
             Button(action: {viewRouter.currentPage = "announcements"}) {
                 Image(systemName: "list.star")
                     .resizable()
                     .frame(width: width, height: height)
             }.frame(maxWidth: .infinity)
+            
+            // Map
             Button(action: {viewRouter.currentPage = "menu"}) {
                 Image(systemName: "map")
                     .resizable()
                     .frame(width: width, height: height)
             }.frame(maxWidth: .infinity)
-            Button(action: {viewRouter.currentPage = "clubs"}) {
+            
+            // Account
+            Button(action: {viewRouter.currentPage = "userView"}) {
                 Image(systemName: "person")
                     .resizable()
                     .frame(width: width, height: height)

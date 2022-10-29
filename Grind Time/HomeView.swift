@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var scrums: [DataScrum]
-    @ObservedObject var viewRouter: ViewRouter
+    @Binding var scrums: [DataStore]
 
     var body: some View {
         VStack {
@@ -24,6 +23,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(scrums: .constant(DataScrum.sampleData), viewRouter: ViewRouter())
+        HomeView(scrums: .constant(DataStore.sampleData))
     }
 }

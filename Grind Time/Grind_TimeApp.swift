@@ -9,14 +9,14 @@ import SwiftUI
 
 @main
 struct Grind_TimeApp: App {
-    @StateObject var store = ScrumStore()
+    @StateObject var store = DataStoreClass()
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 ContentView(scrums: $store.scrums)
             } .onAppear {
-                ScrumStore.load { result in
+                DataStoreClass.load { result in
                     switch result {
                     case .failure(let error):
                         fatalError(error.localizedDescription)

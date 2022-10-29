@@ -8,15 +8,15 @@
 import Foundation
 import SwiftUI
 
-class ScrumStore: ObservableObject {
-    @Published var scrums: [DataScrum] = []
+class DataStoreClass: ObservableObject {
+    @Published var scrums: [DataStore] = []
     
     private static func fileURL() throws -> URL {
         try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("scrums.data")
     }
     
-    static func load(completion: @escaping (Result<[DataScrum], Error>)->Void) {
+    static func load(completion: @escaping (Result<[DataStore], Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {
                 let fileURL = try fileURL()
@@ -26,9 +26,9 @@ class ScrumStore: ObservableObject {
                     }
                     return
                 }
-                let DataScrums = try JSONDecoder().decode([DataScrum].self, from: file.availableData)
+                let DataStores = try JSONDecoder().decode([DataStore].self, from: file.availableData)
                 DispatchQueue.main.async {
-                    completion(.success(DataScrums))
+                    completion(.success(DataStores))
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -38,7 +38,7 @@ class ScrumStore: ObservableObject {
         }
     }
     
-    static func save(scrums: [DataScrum], completion: @escaping (Result<Int, Error>)->Void) {
+    static func save(scrums: [DataStore], completion: @escaping (Result<Int, Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
             do {
                 let data = try JSONEncoder().encode(scrums)

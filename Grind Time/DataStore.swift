@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct DataScrum: Identifiable, Codable {
+struct DataStore: Identifiable, Codable {
     let id: UUID
     var locationHistories: [LocationHistory]
     var timeAtBuildings: [TimeAtBuilding]
@@ -20,7 +20,7 @@ struct DataScrum: Identifiable, Codable {
     }
 }
 
-extension DataScrum {
+extension DataStore {
     // Stores location and date - used in app backround - will be processessed on launching the app
     struct LocationHistory: Identifiable, Codable {
         let id: UUID
@@ -128,9 +128,9 @@ extension DataScrum {
      */
 }
 
-extension DataScrum {
-    static let sampleData: [DataScrum] = [
-        DataScrum(
+extension DataStore {
+    static let sampleData: [DataStore] = [
+        DataStore(
             locationHistories: [
                 LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676975, longitude: -82.836354), date: Date.now),
                 LocationHistory(coordinate: CLLocationCoordinate2D(latitude: 34.676965, longitude: -82.836364), date: Date.now)

@@ -15,8 +15,9 @@
 		43A778A6290D633E00C2A04B /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A778A5290D633E00C2A04B /* ViewRouter.swift */; };
 		43A778A8290D63B800C2A04B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A778A7290D63B800C2A04B /* HomeView.swift */; };
 		43A778AA290D652F00C2A04B /* NavMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A778A9290D652F00C2A04B /* NavMenuView.swift */; };
-		44EEF95F290D707900CD06A8 /* ScrumStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF95E290D707900CD06A8 /* ScrumStore.swift */; };
-		44EEF961290D72B900CD06A8 /* DataScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF960290D72B900CD06A8 /* DataScrum.swift */; };
+		44EEF95F290D707900CD06A8 /* DataStoreClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF95E290D707900CD06A8 /* DataStoreClass.swift */; };
+		44EEF961290D72B900CD06A8 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF960290D72B900CD06A8 /* DataStore.swift */; };
+		44EEF963290D97AD00CD06A8 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EEF962290D97AD00CD06A8 /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +30,9 @@
 		43A778A5290D633E00C2A04B /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		43A778A7290D63B800C2A04B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		43A778A9290D652F00C2A04B /* NavMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavMenuView.swift; sourceTree = "<group>"; };
-		44EEF95E290D707900CD06A8 /* ScrumStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumStore.swift; sourceTree = "<group>"; };
-		44EEF960290D72B900CD06A8 /* DataScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataScrum.swift; sourceTree = "<group>"; };
+		44EEF95E290D707900CD06A8 /* DataStoreClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreClass.swift; sourceTree = "<group>"; };
+		44EEF960290D72B900CD06A8 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		44EEF962290D97AD00CD06A8 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +69,13 @@
 				43A77897290D597300C2A04B /* ContentView.swift */,
 				43A778A7290D63B800C2A04B /* HomeView.swift */,
 				43A778A5290D633E00C2A04B /* ViewRouter.swift */,
+				44EEF962290D97AD00CD06A8 /* UserView.swift */,
 				43A778A3290D5EB400C2A04B /* MapView.swift */,
 				43A778A9290D652F00C2A04B /* NavMenuView.swift */,
 				43A77899290D597400C2A04B /* Assets.xcassets */,
 				43A7789B290D597400C2A04B /* Preview Content */,
-				44EEF95E290D707900CD06A8 /* ScrumStore.swift */,
-				44EEF960290D72B900CD06A8 /* DataScrum.swift */,
+				44EEF95E290D707900CD06A8 /* DataStoreClass.swift */,
+				44EEF960290D72B900CD06A8 /* DataStore.swift */,
 			);
 			path = "Grind Time";
 			sourceTree = "<group>";
@@ -156,12 +159,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A77898290D597300C2A04B /* ContentView.swift in Sources */,
-				44EEF961290D72B900CD06A8 /* DataScrum.swift in Sources */,
+				44EEF961290D72B900CD06A8 /* DataStore.swift in Sources */,
 				43A778A4290D5EB400C2A04B /* MapView.swift in Sources */,
 				43A77896290D597300C2A04B /* Grind_TimeApp.swift in Sources */,
 				43A778A8290D63B800C2A04B /* HomeView.swift in Sources */,
 				43A778A6290D633E00C2A04B /* ViewRouter.swift in Sources */,
-				44EEF95F290D707900CD06A8 /* ScrumStore.swift in Sources */,
+				44EEF95F290D707900CD06A8 /* DataStoreClass.swift in Sources */,
+				44EEF963290D97AD00CD06A8 /* UserView.swift in Sources */,
 				43A778AA290D652F00C2A04B /* NavMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
